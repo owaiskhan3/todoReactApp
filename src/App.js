@@ -37,13 +37,20 @@ class App extends Component {
   updateTodo = (id, value) => {
     console.log(id);
     console.log(value);
-    [...this.state.todos].filter(todo => {
+    let editTodos = [...this.state.todos];
+
+    editTodos.forEach(todo => {
       if (todo.id === id) {
+        console.log(todo);
         todo.text = value;
       }
     });
+    // console.log(editTodos);
 
-    console.log(this.state.todos);
+    this.setState({
+      todos: editTodos
+    });
+    // console.log(this.state.todos);
   };
 
   render() {
